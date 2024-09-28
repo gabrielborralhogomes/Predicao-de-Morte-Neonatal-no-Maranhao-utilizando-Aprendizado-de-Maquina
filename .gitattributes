@@ -1,0 +1,2 @@
+*.csv filter=lfs diff=lfs merge=lfs -text
+dados/SINASC/SINASC_MA.csv filter=lfs diff=lfs merge=lfs -text
