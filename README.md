@@ -6,7 +6,7 @@ A morte neonatal, definida como o óbito que ocorre até os 28 dias de vida, é 
 
 Apesar dessa redução, a morte neonatal permanece um problema crítico, não apenas no Brasil, mas em diversos outros países. Diante desse cenário, a predição de óbitos neonatais, utilizando bases de dados públicas do Brasil e aplicando técnicas de Aprendizado de Máquina, mostra-se altamente relevante para melhorar a saúde pública e reduzir ainda mais essas taxas.
 
-O objetivo deste trabalho é desenvolver um modelo preditivo de óbitos neonatais utilizando algoritmos de Aprendizado de Máquina.
+Portanto o objetivo deste trabalho é desenvolver um modelo preditivo de óbitos neonatais utilizando algoritmos de Aprendizado de Máquina.
 
 ## Materiais e metodologia
 
