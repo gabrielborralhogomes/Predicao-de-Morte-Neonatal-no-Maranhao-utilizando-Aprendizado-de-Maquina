@@ -46,18 +46,30 @@ A base final, que contém 496.996 linhas — cada uma representando um recém-na
 | **KOTELCHUCK**   | Índice que avalia o número de consultas de pré-natal                         |
 | **VIVO**         | Recém-nascido viveu 28 dias ou mais? Valores: 0: Não, 1: Sim          |
 
-Após a criação da base de dados, foram aplicados os algoritmos de correlação de Pearson e Spearman, juntamente com os modelos de classificação Random Forest, CatBoost, Regressão Logística, Naive Bayes e KNN. Devido ao desbalanceamento presente na base original — em que a classe de interesse 'VIVO', correspondente à categoria 0, era significativamente menor do que a categoria 1 — foram utilizados três conjuntos de dados distintos para as análises. O segundo conjunto foi reduzido para 2.732 amostras, enquanto no terceiro aplicou-se a técnica SMOTE para lidar com o desbalanceamento, resultando em um novo dataset expandido com 100.000 amostras.
+Após a criação da base de dados, foram aplicados os algoritmos de correlação de Pearson e Spearman, juntamente com os modelos de classificação Random Forest, CatBoost, Regressão Logística, Naive Bayes e KNN. Devido ao desbalanceamento presente na base original — em que a classe de interesse `VIVO`, correspondente à categoria 0, era significativamente menor do que a categoria 1 — foram utilizados três conjuntos de dados distintos para as análises. O segundo conjunto foi reduzido para 2.732 amostras, enquanto no terceiro aplicou-se a técnica SMOTE para lidar com o desbalanceamento, resultando em um novo dataset expandido com 100.000 amostras.
 
 Além disso, utilizamos a técnica de Grid Search para otimização dos hiperparâmetros em cada um dos algoritmos, buscando aprimorar o desempenho preditivo dos modelos. Os melhores resultados, em termos de acurácia e performance geral, foram observados nos conjuntos de dados balanceados, especialmente no dataset gerado com SMOTE, onde os modelos apresentaram um desempenho significativamente superior.
 
 ## Resultados
 
-A média das correlações foi calculada, e os resultados obtidos estão representados no gráfico a seguir
+A média das correlações foi calculada, e os resultados obtidos estão representados no gráfico a seguir:
 
 ![graph](https://github.com/gabrielborralhogomes/Predicao-de-Morte-Neonatal-no-Maranhao-utilizando-Aprendizado-de-Maquina/blob/main/dados/graficos/graf.png)
 
-Após aplicar diferentes algoritmos de classificação, foi evidente que o desempenho dos modelos foi significativamente afetado pelo desbalanceamento das classes na variável VIVO. No dataset original, os modelos enfrentaram dificuldades para classificar corretamente a classe minoritária, resultando em métricas de desempenho aquém do esperado.
+Após aplicar diferentes algoritmos de classificação, foi evidente que o desempenho dos modelos foi significativamente afetado pelo desbalanceamento das classes na variável `VIVO`. No dataset original, os modelos enfrentaram dificuldades para classificar corretamente a classe minoritária, resultando em métricas de desempenho aquém do esperado.
 
 No entanto, ao utilizar técnicas de balanceamento, como a redução da base para 2.732 linhas e, em especial, a aplicação da técnica SMOTE, os resultados melhoraram consideravelmente. O uso do SMOTE, que gerou uma base com 100.000 linhas balanceadas, proporcionou os melhores resultados entre todos os datasets.
 
 Com o SMOTE, os algoritmos Random Forest, CatBoost, Regressão Logística, Naive Bayes e KNN apresentaram ganhos significativos em precisão, sensibilidade e F1-score. Os resultados obtidos com o dataset balanceado pelo SMOTE foram ainda mais expressivos do que aqueles obtidos com a redução de dados, reforçando a importância de abordar o desbalanceamento para a criação de modelos preditivos mais robustos e eficazes.
+
+## Conclusão
+
+O estudo apresentou uma abordagem para a predição de morte neonatal no estado do Maranhão, utilizando algoritmos de Aprendizado de Máquina em bases de dados públicas do DataSUS. A análise focou na criação de modelos preditivos a partir de variáveis como o índice de Apgar, escolaridade da mãe, tipo de parto, peso ao nascer, entre outras.
+
+Devido ao significativo desbalanceamento da classe de interesse, a aplicação de técnicas de balanceamento de dados, como a redução de amostras e o SMOTE, foi fundamental para melhorar a performance dos modelos. O uso do SMOTE, em particular, demonstrou ser a técnica mais eficiente para equilibrar o dataset, resultando em uma melhoria substancial na acurácia e nas métricas preditivas, como precisão e F1-score, quando comparada ao dataset original.
+
+Os resultados ressaltam a importância de estratégias de balanceamento de dados em problemas de classificação com classes desproporcionais, especialmente em estudos críticos de saúde pública, como a predição de óbitos neonatais. Com essas técnicas, os modelos de machine learning podem ser aplicados com maior confiabilidade na identificação de fatores de risco, contribuindo para o desenvolvimento de políticas de saúde mais eficazes.
+
+Sugere-se que os sistemas de saúde pública do Maranhão adotem um monitoramento contínuo das variáveis mais relevantes, como o índice de Apgar, consultas pré-natais, peso ao nascer e semanas de gestação, integrando análises preditivas em programas de atenção neonatal para antecipar intervenções em gestações de alto risco. O estudo também pode fundamentar a criação de sistemas de alerta precoce, permitindo que equipes médicas identifiquem rapidamente casos com alta probabilidade de óbito neonatal e adotem medidas preventivas eficazes.
+
+
