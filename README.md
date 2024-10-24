@@ -46,8 +46,18 @@ A base final, que contém 496.996 linhas — cada uma representando um recém-na
 | **KOTELCHUCK**   | Índice que avalia o número de consultas de pré-natal                         |
 | **VIVO**         | Recém-nascido viveu 28 dias ou mais? Valores: 0: Não, 1: Sim          |
 
-Após a criação da base de dados, foram aplicados os algoritmos de correlação de Pearson e Spearman, juntamente com os algoritmos de classificação Random Forest, CatBoost, Regressão Logística, Naive Bayes e KNN. Para esses algoritmos, utilizamos três bases de dados diferentes devido a problemas de desbalanceamento na base original. Na classe "VIVO", que é a classe de interesse, a quantidade de registros para a categoria 0 era significativamente menor em comparação à categoria 1. Como resultado, a segunda base foi inicialmente reduzida para 2.732 linhas. Em seguida, na terceira base aplicamos a técnica SMOTE, que aborda o problema de desbalanceamento, resultando em uma nova base com 100.000 linhas.
+Após a criação da base de dados, foram aplicados os algoritmos de correlação de Pearson e Spearman, juntamente com os modelos de classificação Random Forest, CatBoost, Regressão Logística, Naive Bayes e KNN. Devido ao desbalanceamento presente na base original — em que a classe de interesse 'VIVO', correspondente à categoria 0, era significativamente menor do que a categoria 1 — foram utilizados três conjuntos de dados distintos para as análises. O segundo conjunto foi reduzido para 2.732 amostras, enquanto no terceiro aplicou-se a técnica SMOTE para lidar com o desbalanceamento, resultando em um novo dataset expandido com 100.000 amostras.
+
+Além disso, utilizamos a técnica de Grid Search para otimização dos hiperparâmetros em cada um dos algoritmos, buscando aprimorar o desempenho preditivo dos modelos. Os melhores resultados, em termos de acurácia e performance geral, foram observados nos conjuntos de dados balanceados, especialmente no dataset gerado com SMOTE, onde os modelos apresentaram um desempenho significativamente superior.
 
 ## Resultados
 
-![Sonny and Mariel high fiving.](https://github.com/gabrielborralhogomes/Predicao-de-Morte-Neonatal-no-Maranhao-utilizando-Aprendizado-de-Maquina/blob/main/dados/graficos/graf.png)
+A média das correlações foi calculada, e os resultados obtidos estão representados no gráfico a seguir
+
+![graph](https://github.com/gabrielborralhogomes/Predicao-de-Morte-Neonatal-no-Maranhao-utilizando-Aprendizado-de-Maquina/blob/main/dados/graficos/graf.png)
+
+Após aplicar diferentes algoritmos de classificação, foi evidente que o desempenho dos modelos foi significativamente afetado pelo desbalanceamento das classes na variável VIVO. No dataset original, os modelos enfrentaram dificuldades para classificar corretamente a classe minoritária, resultando em métricas de desempenho aquém do esperado.
+
+No entanto, ao utilizar técnicas de balanceamento, como a redução da base para 2.732 linhas e, em especial, a aplicação da técnica SMOTE, os resultados melhoraram consideravelmente. O uso do SMOTE, que gerou uma base com 100.000 linhas balanceadas, proporcionou os melhores resultados entre todos os datasets.
+
+Com o SMOTE, os algoritmos Random Forest, CatBoost, Regressão Logística, Naive Bayes e KNN apresentaram ganhos significativos em precisão, sensibilidade e F1-score. Os resultados obtidos com o dataset balanceado pelo SMOTE foram ainda mais expressivos do que aqueles obtidos com a redução de dados, reforçando a importância de abordar o desbalanceamento para a criação de modelos preditivos mais robustos e eficazes.
